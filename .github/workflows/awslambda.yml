@@ -1,5 +1,11 @@
 name: deploy to lambda
-on: [push]
+on: 
+    workflow_dispatch:
+      inputs:
+        FUNCTION_NAME:
+        required: true
+        type: string
+
 jobs:
 
   deploy_zip:
@@ -23,5 +29,5 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_ID }}
           aws_secret_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
-          function_name: gorush
+          function_name: ${{inputs.FUNCTION_NAME}}
           zip_file: AwsLambda/scripts/scripts.zip
