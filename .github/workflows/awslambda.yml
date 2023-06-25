@@ -1,13 +1,13 @@
 name: deploy to lambda
-on: 
-    workflow_dispatch:
-      inputs:
-        FUNCTION_NAME:
-        required: true
+on:
+  workflow_dispatch:
+    inputs:
+      FUNCTION_NAME:
+        description: 'Function Lambda Name'
         type: string
+        required: true
 
 jobs:
-
   deploy_zip:
     name: deploy lambda function
     runs-on: ubuntu-latest
