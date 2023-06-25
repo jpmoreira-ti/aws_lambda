@@ -13,9 +13,9 @@ jobs:
          path: AwsLambda
          ref: main
       
-      - name: Build binary
+      - name: Generate ZIP
         run: |
-          cd example && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -a -o main main.go && zip deployment.zip main
+          cd AwsLambda/scripts && zip scripts.zip *.mjs
           
       - name: default deploy
         uses: appleboy/lambda-action@v0.1.9
