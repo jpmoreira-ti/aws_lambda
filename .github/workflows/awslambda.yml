@@ -22,7 +22,7 @@ jobs:
       
       - name: Generate ZIP
         run: |
-          cd AwsLambda/scripts && zip scripts.zip *.mjs
+          cd AwsLambda/scripts && zip -r scripts.zip *.mjs
           
       - name: default deploy
         uses: appleboy/lambda-action@v0.1.9
