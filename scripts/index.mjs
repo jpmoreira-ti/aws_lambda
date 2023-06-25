@@ -1,10 +1,13 @@
 import { log } from '../log.mjs'
 
 export const handler = async(event) => {
-    log(JSON.stringify(event));
+    log("Event: " + JSON.stringify(event));
     
     return {
         statusCode: 200,
-        body: JSON.stringify(event)
+        body: `<html><body>Dados da Requisicao: ${JSON.stringify(event)}</body></html>`,
+        headers:  {
+            "content-type": "text/html"
+        }
     };
 };
